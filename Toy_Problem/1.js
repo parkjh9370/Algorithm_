@@ -2,7 +2,7 @@ function orderOfPresentation (N, K) {
     // N 개 배열에 대한 모든 경우의 수
     const factorial = (n) => {
         if ( n <= 1 ) return 1;
-        return n * factorial(n - 1)
+        return n * factorial(n - 1);
     }
 
     // 발표 순서를 담는 변수 생성
