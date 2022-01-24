@@ -9,7 +9,6 @@ const isSubsetOf = function (base, sample) {
   const findsampleIdxInSortedbase = (sampleIdx, base, baseIdx) => {
     for (let i = baseIdx; i < base.length; i++ ) {
       if (sampleIdx === base[i]) return i;
-      else if (sampleIdx < base[i]) return -1;
     }
     return -1;
   }
