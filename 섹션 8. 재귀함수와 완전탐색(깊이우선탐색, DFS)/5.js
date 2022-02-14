@@ -13,7 +13,9 @@ function solution(arr) {
         }
         else {  
             DFS(L+1, sum+arr[L]);
+            console.log(sum)
             DFS(L+1, sum)
+            console.log(sum)
         }
 
     }
