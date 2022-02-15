@@ -20,12 +20,12 @@ function solution(n, arr){
         }
         else {
             for (let i = 0; i <= graph[v].length; i++ ) {
-                // v정점에서 i라는 정점으로 갈 수 있는지 확인, 이미 방문여부 확인(0이여야 방문 가능)
+                
                 if ( ch[graph[v][i]] === 0 ) {
-                    ch[graph[v][i]] = 1;  //방문했으면 check
+                    ch[graph[v][i]] = 1;  
                     path.push(graph[v][i]);
-                    DFS(graph[v][i]); // node 가 뻗어 나가는 만큼 콜 스택에 쌓임
-                    ch[graph[v][i]] = 0 // 1 체크되어 있는거 정점 연결된 곳 까지 초기화
+                    DFS(graph[v][i]); 
+                    ch[graph[v][i]] = 0
                     path.pop();
                 }
             }
