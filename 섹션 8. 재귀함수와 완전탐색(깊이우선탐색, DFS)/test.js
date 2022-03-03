@@ -1,13 +1,21 @@
-function solution(n) {
-  let answer = 1;
-  
-  function DFS(n) {
-    if ( n === 1 ) return 1;
-    else return n * DFS(n-1);
-  }
+function solution(n,m) {
+  let answer = [];
+  let tmp = Array.from({length:m},()=>0)
 
-  answer = DFS(n)
+  function DFS(L) {
+    if (L===m) {
+      answer.push([...tmp])
+    }
+    else {
+      for (let i = 1; i <= n; i++ ) {
+        tmp[L] = i;
+        DFS(L+1);
+      }
+    }
+  }
+ 
+  DFS(0);
   return answer;
 }
 
-console.log(solution(5));
+console.log(solution(3,2));
