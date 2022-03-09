@@ -26,5 +26,5 @@ function solution(m, arr) {
     return answer;
 }
   
-  let arr = [3, 6, 9 ];
-  console.log(solution(2, arr))
+  let arr = [1, 1, 1, 1, 1];
+  console.log(solution(5, arr))

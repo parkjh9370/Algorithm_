@@ -1,4 +1,4 @@
-// 중복순열
+중복순열
 function solution(n,m) {
     let answer = [];
     let tmp = Array.from({length:m},()=>0)

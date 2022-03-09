@@ -1,23 +1,26 @@
-//조합구하기
+function solution(c, arr) {
+  // 최댓값 구하는 경우 작은 수로 초기화
+  let answer = Number.MIN_SAFE_INTEGER;
+  let n = arr.length;
 
-function solution(n, m) {
-  let answer = [];
-  let tmp = Array.from({length: m }, ()=> 0);
-
-  function DFS(L, s) {
-    if ( L === m ) {
-      answer.push([...tmp])
+  function DFS(L, sum) {
+    if (sum > c) return;
+    if (L === n) {
+      // console.log(sum)
+      answer = Math.max(answer, sum);
     }
     else {
-      for ( let i = s; i <= n; i++ ) {
-        tmp[L] = i;
-        DFS(L+1, i+1)
-      }
+      // 태운 경우
+      DFS(L+1, sum+arr[L]);
+      // 태우지 않은 경우 
+      DFS(L+1, sum);
     }
   }
 
-  DFS(0, 1);
+  DFS(0,0);
   return answer;
 }
 
-console.log(solution(4,2));
+
+let arr = [81, 58, 42, 33, 61];
+console.log(solution(259,arr));
