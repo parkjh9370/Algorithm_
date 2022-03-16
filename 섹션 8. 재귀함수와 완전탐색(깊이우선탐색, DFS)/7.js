@@ -12,9 +12,7 @@ function solution(m, pv, pt) {
             DFS(L+1, sum, time);
         }
     }
-
     DFS(0, 0, 0);
-
     return answer;
 }
 
