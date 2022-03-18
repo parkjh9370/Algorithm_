@@ -1,3 +1,4 @@
+//팩토리얼
 function solution(n) {
     let answer = 1;
     
@@ -8,7 +9,8 @@ function solution(n) {
       // 5 * 4 * DFS(3)
       // 5 * 4 * 3 * DFS(2)
       // 5 * 4 * 3 * 2 * DFS(1)
-      // 5 * 4 * 3 * 2 * 1
+      // 최종적인 리턴으로 실행하는 순서
+      // 5 * (4 * (3 * (2 * 1)))
     }
     
     // 최종 값을 answer 변수에 담음
