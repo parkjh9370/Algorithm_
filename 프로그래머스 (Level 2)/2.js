@@ -1,3 +1,4 @@
+// 타겟넘버
 function solution(numbers, target) {
     let answer = 0;
     let n = numbers.length;
