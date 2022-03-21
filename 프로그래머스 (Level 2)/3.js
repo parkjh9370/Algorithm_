@@ -1,3 +1,4 @@
+// 큰수만들기
 function solution(number, k) {
     const stack = [];
 
