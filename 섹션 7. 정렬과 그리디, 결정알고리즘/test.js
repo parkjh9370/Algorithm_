@@ -1,51 +1,19 @@
-// const quickSort = function (arr) {
-//     // 배열 요소가 1개이면 정렬할 필요가 없음으로 리턴 arr
-//       if (arr.length <= 1) return arr;
+function solution(arr) {
+  let answer = arr;
 
-//     // 첫번째 요소 저장
-//       const pivot = arr[0];
-//       const left = [];
-//       const right = [];
-    
-    
-//       for (let i = 1; i < arr.length; i++) {
-//         if (arr[i] <= pivot) left.push(arr[i]);
-//         else right.push(arr[i]);
-//       }
-    
-//       const lSorted = quickSort(left);
-//     //   console.log(`lSorted1 = ${lSorted}`)
-//     //   console.log(`rSorted = ${rSorted}`)
-//       const rSorted = quickSort(right);
-//     //   console.log(`lSorted2 = ${lSorted}`)
-//     //   console.log(`rSorted2 = ${rSorted}`)     
-//       return [...lSorted, pivot, ...rSorted];
-// };
-
-function quickSort (array) {
-    if (array.length < 2) {
-      return array;
+  for ( let i = 0; i < arr.length - 1; i++ ) {
+    // 초기 인덱스 번호 idx에 저장
+    let idx = i;
+    for ( let j = i+1; j < arr.length; j++ ) {
+      // arr[idx] 보다 작은 값 나타나면 그 인덱스를 idx로 바꿔줌
+      if (arr[j] < arr[idx]) idx = j;
     }
-    const pivot = [array[0]];
-    const left = [];
-    const right = [];
-    for (let i = 1; i < array.length; i++) {
-      if (array[i] < pivot) {
-        left.push(array[i]);
-        } 
-      else if (array[i] > pivot) {
-        right.push(array[i]);
-        }
-        else {
-        pivot.push(array[i]);
-        }
-    }
-  // console.log(`left: ${left}, pivot: ${pivot}, right: ${right}`);
-    // return quickSort(left).concat(pivot, quickSort(right));
-    return quickSort(left).concat(pivot, quickSort(right));
-  
+    // 각 배열을 교환
+    [arr[i], arr[idx]] = [arr[idx], arr[i]];
   }
 
-let arr = [13, 5 , 11, 7, 23, 15];
+  return answer;
+}
 
-console.log(quickSort(arr))
+let arr = [13, 5, 11, 7, 23, 15];
+console.log(solution(arr))
