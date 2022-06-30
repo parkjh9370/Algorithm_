@@ -1,33 +1,28 @@
 const isSubsetOf = function (base, sample) {
-  // [1, 2, 3, 4 ,5 ]
-  base.sort((a, b) => a - b);
-  // console.log(base)
-  // [1, 3]
-  sample.sort((a, b) => a - b);
-  // console.log(sample)
+  base.sort((a,b) => a-b);
+  sample.sort((a,b) => a-b);
 
-  const findsampleIdxInSortedbase = (sampleIdx, base, baseIdx) => {
-    for (let i = baseIdx; i < base.length; i++ ) {
-      if (sampleIdx === base[i]) return i;
+  const isPartOfbase = (sample, base) => {
+    console.log(sample)
+    for ( let i = 0; i < base.length; i++ ) {
+      if (sample === base[i]) return 1;
     }
-    return -1;
+    return -1
   }
 
-  let baseIdx = 0;
-  // base = [1, 2, 3, 4, ,5]
-  // sample = [1,3]
-  // sample 인자를 하나씩 반복하면서 초기값 0을 넘겨주고
-  // 만약 부분집합이면 그대로 0을 돌려주고 아니라면 -1을 리턴값으로 넘겨줌
-  for (let i = 0;i < sample.length; i++ ) {
-    baseIdx = findsampleIdxInSortedbase(sample[i], base, baseIdx);
-    if (baseIdx === -1) return false
+  let findIndex = 0;
+  // 검사해야할 부분 반복문 돌려 주며 체크
+  for ( let i = 0; i < sample.length; i++ ) {
+    // 체크 함수
+    findIndex = isPartOfbase(sample[i], base)
+    if (findIndex === -1) return false
   }
   return true;
 };
 
 
   let base = [1, 2, 3, 4, 5];
-  let sample = [1, 3];
+  let sample = [7, 3];
   let output = isSubsetOf(base, sample);
   console.log(output); // --> true
   
